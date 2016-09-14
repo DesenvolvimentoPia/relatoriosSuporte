@@ -1,0 +1,54 @@
+/* Estilos */
+
+body#login {
+    background: url(../img/fundo.jpg);
+    background-size: cover;
+}
+
+#login footer {
+    text-align: center;
+    color: #FFF;
+    font-family: calibri;
+    text-shadow: 0px 0px 7px #132b43;
+}
+
+form {
+    width: 34%;
+    min-height: 205px;
+    background: #FFF;
+    border: 1px solid #777;
+    display: block;
+    padding: 34px 0;
+    margin: 34px auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.43);
+}
+
+#login form img {
+    width: 52%;
+    display: block;
+    margin: 25px auto;
+}
+
+#login input {
+    width: 60%;
+    display: block;
+    margin: 10px auto;
+    height: 43px;
+    border: 1px solid #CCC;
+    padding: 0 16px;
+    color: #434343;
+    font-size: 18px;
+    font-family: calibri;
+}
+
+#login input[type="submit"] {
+    background: #253461;
+    color: #FFF;
+    border: none;
+    margin-bottom: 43px;
+    cursor: pointer;
+}
+
+#login input[type="submit"]:hover {
+    background: #354B8C;
+}
