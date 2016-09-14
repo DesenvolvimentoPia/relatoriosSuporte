@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+
 // Exibir Erros Oriundos do PHP
 ini_set('display_errors',1);
 ini_set('display_startup_erros',1);
@@ -10,6 +12,22 @@ error_reporting(E_ALL);
 if(!empty($_SESSION['usuario'])) header("location: ./");
 
 else {
+
+include "conexao.php";
+
+if(!empty($_POST)) {
+	$sql = "SELECT * FROM relatorios_usuarios WHERE login = '".$_POST['usuario']."' AND senha = '".$_POST['senha']."'";
+	$res = mysql_query($sql, $con);
+	$num = mysql_num_rows($res);
+	if($num > 0) {
+		$row = mysql_fetch_array($res);
+		$_SESSION['usuario'] = $row['login'];
+		$_SESSION['nome'] = $row['nome'];
+		header("location: ./");
+	}
+
+	else $erro = "Usuário ou Senha Inconrretos!";
+}
 
 echo "<body id='login'>";
 
