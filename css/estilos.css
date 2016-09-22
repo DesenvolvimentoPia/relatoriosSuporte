@@ -27,6 +27,7 @@ form {
     width: 52%;
     display: block;
     margin: 25px auto;
+    left: 0;
 }
 
 #login input {
@@ -54,9 +55,13 @@ form {
 }
 
 main img {
-    display: block;
+    display: inline-block;
     margin: 34px auto;
     width: 304px;
+    vertical-align: middle;
+    margin-left: -152px;
+    position: relative;
+    left: 50%;
 }
 
 main nav {
@@ -112,4 +117,27 @@ nav a:hover .imagem {
     -moz-filter: grayscale(0%);
     -o-filter: grayscale(0%);
     filter: grayscale(0%);
+}
+
+
+a#logout {
+    display: inline-block;
+    width: 100px;
+    padding: 16px 0;
+    text-align: center;
+    background: rgba(255,255,255,0.52);
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-family: calibri;
+    transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+    position: relative;
+    margin-left: 68%;
+}
+
+a#logout:hover {
+    background: rgba(255,255,255,0.88);
 }

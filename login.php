@@ -23,6 +23,11 @@ if(!empty($_POST)) {
 		$row = mysql_fetch_array($res);
 		$_SESSION['usuario'] = $row['login'];
 		$_SESSION['nome'] = $row['nome'];
+		$_SESSION['userId'] = $row['id'];
+		
+		$sql = "INSERT INTO relatorios_historico VALUES ('', 'Login Usuário', '".date("Y-m-d H:i:s")."', 'Login Realizado com Sucesso.', '".$row['id']."', '0')";
+		$res = mysql_query($sql, $con);
+		
 		header("location: ./");
 	}
 
