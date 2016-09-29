@@ -6,5 +6,7 @@
 	<input required type="text" name="usuario" placeholder="Usuário">
 	<input required type="password" name="senha" placeholder="Senha">
 	<input type="submit">
+
+	<?php if(!empty($erro)) echo "<p class='erroLogin'>".$erro."</p>"; ?>
 	</form>
 </main>

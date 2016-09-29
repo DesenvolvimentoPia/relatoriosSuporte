@@ -1,1 +1,92 @@
+
+<?php if(!empty($_SESSION['usuario'])) { ?>
+<div id="sombraBranca"></div>
+
+<form action="./" method="post" id="formNovaSenha">
+
+<h5>Alterar Senha</h5>
+
+<input type="password" required id="senhaAtual" name="senhaAtual" placeholder="Senha Antiga">
+<input type="password" required id="novaSenha" name="novaSenha" placeholder="Nova Senha">
+<input type="password" required id="repetirNovaSenha" name="repetirNovaSenha" placeholder="Repetir Nova Senha" oninput="validaSenha(this)" >
+
+<input type="submit" value="Salvar">
+
+</form>
+
+
+<a id="alterarSenha" title="Alterar Senha"></a>
+
+
+<script type="text/javascript">
+
+function validaSenha (input){ 
+    if (input.value != document.getElementById('novaSenha').value) {
+    input.setCustomValidity('Repita a senha corretamente');
+  } else {
+    input.setCustomValidity('');
+  }
+} 
+
+$(function() {
+	$("#sombraBranca").click(function() {
+		$("#sombraBranca").fadeOut();
+		$("#formNovaSenha").fadeOut();
+		$("#erro").fadeOut();
+	});
+	$("#alterarSenha").click(function() {
+		$("#sombraBranca").fadeIn();
+		$("#formNovaSenha").fadeIn();
+	});
+});
+	
+</script>
+
+<?php } ?>
+
 <footer>© Copyright 2016 - Cooperativa Agropecuária PIÁ - Todos os direitos reservados.</footer>
+
+<?php
+
+if(!empty($_SESSION['usuario'])) {
+
+include "conexao.php";
+
+if(!empty($_POST)) {
+	$sql = "SELECT * FROM relatorios_usuarios WHERE login = '".$_SESSION['usuario']."' AND senha = '".$_POST['senhaAtual']."'";
+	$res = mysql_query($sql, $con);
+	$num = mysql_num_rows($res);
+	if($num > 0) {
+		$row = mysql_fetch_array($res);		
+		$sql = "UPDATE relatorios_usuarios SET senha = '".$_POST['novaSenha']."' WHERE id =".$row['id'];
+		$res = mysql_query($sql, $con);
+		
+		$erro = "Senha Alterada com Sucesso!";
+		$classe = "sucesso";
+	}
+
+	else {
+		$erro = "Senha Incorreta!";
+		$classe = "erro";
+	}
+
+?>
+
+<script type="text/javascript">
+
+$(function() {
+	$("#sombraBranca").fadeIn();
+	$("#erro").fadeIn();
+});
+	
+</script>
+
+
+<div id="erro" class="<?=$classe;?>"><?=$erro;?></div>
+
+<?php
+
+}
+
+}
+?>

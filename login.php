@@ -24,6 +24,7 @@ if(!empty($_POST)) {
 		$_SESSION['usuario'] = $row['login'];
 		$_SESSION['nome'] = $row['nome'];
 		$_SESSION['userId'] = $row['id'];
+		$_SESSION['acesso'] = $row['acesso'];
 		
 		$sql = "INSERT INTO relatorios_historico VALUES ('', 'Login Usuário', '".date("Y-m-d H:i:s")."', 'Login Realizado com Sucesso.', '".$row['id']."', '0')";
 		$res = mysql_query($sql, $con);

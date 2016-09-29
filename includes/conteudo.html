@@ -7,16 +7,16 @@
 <a href="consultasGFE/">
 	<div class="imagem" style="background-image: url(img/consultasGFE.jpg)"></div>
 	Consultas GFE
-</a>
+</a><?php if($_SESSION['acesso'] != 7) { ?>
 <a href="telefones/">
 	<div class="imagem" style="background-image: url(img/telefones.jpg)"></div>
 	Cadastro Telefones</a>
-<a>
+<a href="aprendizes/">
 	<div class="imagem" style="background-image: url(img/aprendizes.jpg)"></div>
-	Menor Aprendiz</a>
+	Agenda Aprendizes</a>
 <a>
-	<div class="imagem"></div>
-	Aguardando</a>
+	<div class="imagem" style="background-image: url(img/rateios.jpg)"></div>
+	Cálculo Rateios</a><?php } ?>
 
 </nav>
 
